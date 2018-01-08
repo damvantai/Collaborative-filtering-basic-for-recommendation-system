@@ -1,0 +1,107 @@
+\chapter{Kiến thức cơ sở}
+Chương này sẽ giới thiệu nét chính về khái niệm hệ khuyến nghị, mô tả một vài phương pháp khác nhau và ưu nhược điểm của các phương pháp đó. Phạm vi của báo cáo nằm trong lọc cộng tác
+
+\section{Hệ khuyến nghị}
+Mục tiêu chính của hệ khuyến nghị là đánh giá for các mặt hàng và cung cấp một danh sách các mặt hàng được đề nghị cho người mua hàng. Có nhiều phương pháp khác nhau cho nhiệm vụ này, như so sánh các đánh giá, mặt hàng, đặc trưng người mua.
+
+Mọi hệ khuyến nghị cơ bản chứa đựng các thông tin căn bản như: tập người mua hàng, tập các mặt hàng và quan hệ giữa chúng (các đánh giá của người mua cho từng mặt hàng). Đánh giá cho một mặt hàng thường biểu diễn bằng một số nguyên, ví dụ có thể trong khoảng 0 - 5.
+
+Các liên kết cho các thực thể (người mua - mặt hàng) được mô tả bằng đồ thị hai phía. và ma trận. Một công cụ thường sử dụng của hệ khuyến nghị là thông tin người mua và thuộc tính mặt hàng. Thông tin người mua có thể bao gồm nhiều đặc trưng, như: tuổi, giới tính và nghề nghiệp. Thuộc tính của một mặt hàng phụ thuộc nội dung của chúng. Như phim có thể có các đặc trưng về thể loại, danh sách diễn viên.
+
+Hệ khuyến nghị có thể phân loại đến ba thể loại chính:
+\begin{enumerate}[1.]
+	\item \textbf{Lọc dựa trên nội dung (Content-based filtering):} Khuyến nghị các mặt hàng giống về nội dung với các mặt hàng khác được người mua đã đánh giá tốt.
+	\item \textbf{Lọc cộng tác (Collaborative filtering):} khuyến nghị các mặt hàng bằng việc so sánh độ tương đồng của hai người mua dựa vào bảng đánh giá các sản phẩm mà họ mua từ đó tìm ra tập người mua tương đồng với nhau. Sau đó sẽ đánh giá các mặt hàng mà người mua chưa đánh giá (đây gọi là lọc cộng tác dựa trên user-user). Hệ thống lọc cộng tác có thể chia ra làm hai phương pháp là dựa trên bộ nhớ (memory-based) và  dựa trên mô hình.
+	\item \textbf{Lọc kết hợp (Hybrid filtering):} khuyến nghị mặt hàng bằng việc tổ hợp hai hệ thống lọc trên.
+\end{enumerate}
+
+\section{Hệ thống dựa theo nội dung (Content-based)}
+Trong hệ thống dựa theo nội dung, một khuyến nghị được dựa trên liên kết giữa các thuộc tính của các mặt hàng đã được người mua đánh gía và chưa đánh giá. Phương pháp này sử dụng khái niệm nhất quán sự quan tâm của mỗi cá nhân, sẽ không thay đổi trong tương lại gần.
+
+Giả sử mỗi người mua đã đánh giá một tập mặt hàng, từ đó ta có thể xây dụng bảng thông tin cá nhân của người đó dựa trên các đặc trưng nội dung của mặt hàng để từ đó xác định các mặt hàng khác có các đặc trưng nằm trong bảng thông tin đó.
+
+\section{Hệ thống lọc cộng tác (Collaborative filtering)}
+Hệ thống lọc cộng tác khuyến nghị các mặt hàng đến người sử dụng bởi so sánh đánh giá của người sử dụng. Ý kiến của người mua trong thực tế đóng vai trò quan trọng cho việc ra quyết định mua hay không mua. Hệ thống sẽ tìm ra những người dùng có những đánh giá tương đồng.
+
+\begin{table}[H]
+\caption{Đánh gía user-item. Đánh giá trong khoảng 1-5, 5 là tốt nhất và 1 là tệ nhất}
+\label{table:1}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Rating Matrix & The Avengers & The Revevant & The Martian & Deadpool \\ 
+\hline 
+Fred & 2 & 4 & 5 & 1 \\ 
+\hline 
+Sara & ? & 5 & ? & 2 \\ 
+\hline 
+John & 5 & 2 & 2 & 4 \\ 
+\hline 
+Jessica & ? & 1 & ? & 5 \\ 
+\hline 
+\end{tabular} 
+\end{center}
+\end{table}
+
+Table \ref{table:1} là một ví dụ về hoạt động của hệ lọc công tác khuyến nghị một mặt hàng sử dụng thông tin từ các người sử dụng khác. Đánh giá user-item có thể được nhìn như một ma trận, như biểu diễn trong bảng. Mỗi hàng trong bảng \ref{table:1} biểu diễn một người sử dụng và mỗi cột   một phim, đánh giá nằm trong khoảng 1-5.
+
+Để cung cấp để xuất cho người mua, hệ thống xác định những người dùng khác dựa trên thông tin các mẫu được đánh giá bởi họ. Các mặt hàng được đề xuất sẽ dựa theo nhưng người tương đồng với người đó. Với một lượng lớn người mua đánh giá trong một hệ thống thực, sẽ cho nhiều độ chính xác hơn.
+
+Một nhược điểm của thuật toán cộng tác là đề nghị hệ thống có nhiều đánh giá cho các mặt hàng để đặt được độ chính xác khi đề xuất.
+
+\section{Hệ thống kết hợp (Hybrid Approaches)}
+Để cố gắng đạt được nhiều đề xuất chính xác, phương pháp kết hợp được đề xuất. Một thuật toán kết hợp là tổ hợp của nhiều phương pháp nhằm đạt được kết quả chính xác. Ý tưởng chung đằng sau của phương pháp kết hợp được mô tả dưới đây:
+\begin{enumerate}[1.]
+	\item Một hệ thống kết hợp có thể dự đoán đề xuất từ một tập dữ liệu, sử dụng cả một phương pháp dựa trên nội dung và phương pháp lọc. Khi dự đoán này được sử dụng, một số liệu cụ thể có thể được sử dụng để xác định độ chính xác của các khuyến nghị, để xác định tập đề xuất. Ngoài ra, kết quả có thể được kết hợp để tạo ra kết quả đề xuất cao nhất từ cả hai cách tiếp cận.
+	\item Một hệ thống kết hợp có thể dự đoán đề xuất từ một tập dữ liệu sử dụng phương pháp lọc cộng tác kết hợp chặt chẽ với một vài nôi dung đặc trưng của phương pháp dựa trên nội dung.
+	\item Một hệ thống kết hợp có thể dự đoán đề xuất từ một tập dữ liệu sử dụng phương pháp dựa trên nội dung kết hợp với một vài đặc tả của phương pháp cộng tác.
+\end{enumerate}
+
+\section{Thuật toán dựa trên bộ nhớ (Memory-based Algorithms)}
+Thuật toán dựa trên bộ nhớ sử dụng lý thuyết xác suất để tìm tập mua,  thường được gọi là hàng xóm, đó là những người mua tương tự. Một hàng xóm tìm bởi lọc cộng tác được thực hiện tính toán độ tương đồng. Độ tương đồng được tính bằng tương quan khoảng cách giữa những người mua, và những mặt hàng. Một sản phẩm dự đoán đến người mua được sinh ra bằng tính toán  trung bình đánh giá của người mua tương đồng đối với sản phẩm đó. Hệ thống này được sử dụng trong thương mại điện tử điển hình là trang web Amazon.com 
+
+Tuy nhiên thuật này cũng có vài giới hạn, đặc biệt khi tập dữ liệu thưa, để tìm người mua tương đồng là rất khó khăn và không chính xác.
+
+\section{Thuật toán dựa trên mô hình (Model-based Algorithm)}
+Thuật toán dựa trên mô hình khác với dựa trên bộ nhớ bởi sử dụng thuật toán học máy, thuật toán khai phá dữ liệu hoặc một thuật toán khác để tìm kiểu mẫu đặc trưng và dự đoán đánh giá bằng việc học. Một vài phương pháp cho dựa thuật toán dựa trên mô hình là mô hình phân cụm, mô hình bayesian va các mô hình phụ thuộc.
+
+\section{Các vấn đề}
+Ngày nay, hệ khuyến nghị đối mặt với nhiều vấn đề, bao gồm thực thi, thuộc tính người sử dụng và vấn đề về hiệu năng. Thêm vào đó, các thuộc tính của tập dữ liệu cũng là một thử thách.
+\subsection{Thực thi}
+Hệ khuyến nghị đối mặt với nhiều thử thách, các thuật toán thường có các nhược điểm riêng của chúng. Mặc dù một số phương pháp tiếp cận có hiệu quả về thời gian và đưa ra dự đoán chính xác nhưng kết quả lại đem đến kết quả không chính xác. Lý do về dữ liệu ít cũng làm giảm độ chính xác.
+\subsection{Hiệu năng}
+Sự phát triển nhanh của cơ sở dữ liệu bao gồm user-item có thể dẫn đến vấn đề về hiệu năng. Dịch vụ bao gồm hàng triệu mặt hàng và người mua đem lại độ chính xác cho hệ khuyến nghị nhưng mặt khác tính toán như vậy có thể quá chậm.
+\subsection{Thuộc tính người mua}
+Khó để đánh giá, mức độ thuộc tính của người mua đối với các mặt hàng một cách chính xác cụ thể. Vấn đề về đánh giá không chính xác của người mua về mặt hàng và số lượng đánh giá quá ít, không thể làm nổi bật được đặc điểm của người mua.
+\subsection{Tập dữ liệu}
+Tập dữ liệu được sử dụng để đánh giá thuật toán có tác động lớn tới kết quả. Khi đánh giá một thuật toán. Chọn bộ dữ liệu phù hợp các thuộc tính độc lập. Các thuộc tính của tập dữ liệu có ảnh hưởng tới thuật toán. ví dụ:
+\begin{enumerate}[1.]
+	\item Mật độ của tập dữ liệu.
+	\item Tỉ lệ giữa người mua và mặt hàng (user-item)
+\end{enumerate}
+Mật độ là quan trọng vì người mua chỉ đánh giá một tập con nhỏ tất cả các mặt hàng. Tập dữ liệu thưa thường cho kết quả dự đoán không chính xác.
+\section{Đánh giá}
+Hiệu năng thuật toán khuyến nghị có thể được đo bằng cách kiểm tra lại trên các tập dữ liệu khác nhau. Trong báo cáo này, đánh giá chéo được sử dụng để kiểm tra hiệu năng của thuật toán dự đoán. Hiệu năng của thuật toán dự đoán được đo với nhiều công thức khác nhau. Công thức được sử dụng phụ thuộc và mục đích của thuật toán và mục tiêu của phép đo.
+\subsection{Trung bình trị tuyệt đối của lỗi (Mean Absolute Error}
+Mean absolute error(MAE) là công thức được sử dụng để tính trung bình của tất cả giá trị tuyệt đối khác nhau giữa đánh giá dự đoán và đánh giá đúng. MAE thấp cho độ chính xác cao. Tổng quan MAE có thể từ 0 cho đến vô hạn, khi vô hạn là lỗi lớn nhất. Công thức của MAE 
+\begin{center}
+MAE = $ \frac{1}{n}\sum^{n}_{i=1}|ratingactual_{i}| - |ratingpredicted_{i}|$
+\end{center}
+n is the amount of ratings
+\\ rating\- actual is the actual rating
+\\ rating\- predicted is predicted rating
+\subsection{Căn bậc hai trung bình của bình phương lỗi}
+Root mean square error(RMSE) tính giá trị trung bình của tất cả bình phương hiệu giữa đánh giá đúng và đánh giá dự đoán và sau đó tính căn bậc hai để ra kết quả. Công thức của RMSE:
+\begin{center}
+$RMSE = \sqrt{\frac{1}{n}\sum^{n}_{i=1}(ratingactual_{i} - ratingpredicted_{i})^2}$
+\end{center}
+n is the amount of ratings
+\\ rating\- actual is the actual rating
+\\ rating\- predicted is predicted rating
+
+\subsection{Đánh giá chéo}
+Đánh giá chéo được hiểu như là đánh giá xoay vòng, ta chia dữ liệu thành các n bộ sau chọn n-1 bộ để làm tập dữ liệu đào tạo và tập còn lại để đánh giá, cứ làm như vậy cho đến khi mọi tập đều được chọn làm đánh giá. Kết quả cuối cùng sẽ là giá trị trung bình của mỗi lần chọn.
+%ua%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "isauae-report-template"
+%%% End: 
