@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  8 JAN 2018 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.28)  8 JAN 2018 21:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2373,16 +2373,14 @@ Underfull \vbox (badness 6775) has occurred while \output is active []
 
 
 ])
-[16 <./images/svd_error.jpg>]
-No file collaborative-filtering-report.bbl.
-[17
+[16 <./images/svd_error.jpg>] [17
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 291.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 291.
- (build/collaborative-filtering-report.aux (build/01-introduction.aux)
-(build/02-background.aux) (build/03-algorithms.aux) (build/04-experiment.aux)
-(build/05-result.aux))
+ (build/collaborative-filtering-report.aux
+(build/01-introduction.aux) (build/02-background.aux) (build/03-algorithms.aux)
+(build/04-experiment.aux) (build/05-result.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 291.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 291.
 Package rerunfilecheck Info: File `collaborative-filtering-report.out' has not 
@@ -2391,10 +2389,10 @@ changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 291.
  ) 
 Here is how much of TeX's memory you used:
- 33458 strings out of 493029
- 766332 string characters out of 6136234
- 987062 words of memory out of 5000000
- 36178 multiletter control sequences out of 15000+600000
+ 33456 strings out of 493029
+ 766308 string characters out of 6136234
+ 987017 words of memory out of 5000000
+ 36177 multiletter control sequences out of 15000+600000
  21718 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,12n,84p,1168b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2411,7 +2409,7 @@ nts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnbx12.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/vntex/vnr/vnr12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/vntex/vnr/vnti12.pfb>
-Output written on build/collaborative-filtering-report.pdf (27 pages, 485706 by
+Output written on build/collaborative-filtering-report.pdf (27 pages, 485712 by
 tes).
 PDF statistics:
  381 PDF objects out of 1000 (max. 8388607)
