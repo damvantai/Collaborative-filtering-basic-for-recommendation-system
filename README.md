@@ -13,3 +13,10 @@
 
 
 ### Link github: https://github.com/damvantai/Collaborative-filtering-basic-for-recommendation-system
+
+
+### Result dataset 100K ratings
+
+| MAE user-user	| RMSE user-user | MAE item-item	| RMSE item-item |
+| ------------- |:-------------: | ---------------: | -------------: |	
+| 0.806564      | 0.806564       | 0.777494         | 0.999956       |
