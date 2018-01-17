@@ -2,7 +2,7 @@
 
 ### Report and code algorithm recommendation system use collaborative filtering
 
-### Python 2
+### Python 3
 
 **Code folder**
 
